@@ -28,7 +28,7 @@ const AddBooking = () => {
     const { user } = useAuth();
     const onSubmit = (data) => {
         data.status = "Pending";
-        fetch("http://localhost:5000/orders", {
+        fetch("https://macabre-vault-58838.herokuapp.com/orders", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -153,7 +153,7 @@ const AddBooking = () => {
                 </div>
             </div>
             <div className="row mt-2 container mx-auto">
-                <div className="col-8 mt-5">
+                <div className="col-12 col-lg-8 mt-5">
                     <div>
                         <h1>{eventName}</h1>
                     </div>

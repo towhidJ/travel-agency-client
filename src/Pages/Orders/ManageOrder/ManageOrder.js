@@ -9,7 +9,7 @@ const ManageOrder = () => {
     const [st, setSt] = useState(0);
 
     useEffect(() => {
-        fetch("http://localhost:5000/orders/")
+        fetch("https://macabre-vault-58838.herokuapp.com/orders/")
             .then((res) => res.json())
             .then((data) => {
                 setOrders(data);
@@ -19,7 +19,7 @@ const ManageOrder = () => {
 
     const changHandler = (data, id) => {
         console.log(data);
-        fetch(`http://localhost:5000/status/${id}`, {
+        fetch(`https://macabre-vault-58838.herokuapp.com/status/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ status: data }),
@@ -34,10 +34,13 @@ const ManageOrder = () => {
     const deleteHandler = (id) => {
         if (window.confirm("Are you sure you want to delete this order?")) {
             {
-                fetch(`http://localhost:5000/orders/${id}`, {
-                    method: "Delete",
-                    headers: { "Content-Type": "application/json" },
-                })
+                fetch(
+                    `https://macabre-vault-58838.herokuapp.com/orders/${id}`,
+                    {
+                        method: "Delete",
+                        headers: { "Content-Type": "application/json" },
+                    }
+                )
                     .then((res) => res.json())
                     .then((data) => {
                         setSt(1);

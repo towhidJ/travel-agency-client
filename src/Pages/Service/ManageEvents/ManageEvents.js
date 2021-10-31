@@ -5,9 +5,8 @@ const ManageEvents = () => {
     const [event, setEvent] = useState([]);
     const { user } = useAuth();
 
-    let items = [];
     useEffect(() => {
-        fetch("http://localhost:5000/events")
+        fetch("https://macabre-vault-58838.herokuapp.com/events")
             .then((res) => res.json())
             .then((data) => {
                 setEvent(data.events);
@@ -16,10 +15,13 @@ const ManageEvents = () => {
     const deleteHandler = (id) => {
         if (window.confirm("Are you sure you want to delete this order?")) {
             {
-                fetch(`http://localhost:5000/events/${id}`, {
-                    method: "Delete",
-                    headers: { "Content-Type": "application/json" },
-                })
+                fetch(
+                    `https://macabre-vault-58838.herokuapp.com/events/${id}`,
+                    {
+                        method: "Delete",
+                        headers: { "Content-Type": "application/json" },
+                    }
+                )
                     .then((res) => res.json())
                     .then((data) => {
                         alert("Events Delete Success");

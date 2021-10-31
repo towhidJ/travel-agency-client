@@ -10,7 +10,7 @@ const Orders = () => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:5000/orders/byEmail", {
+        fetch("https://macabre-vault-58838.herokuapp.com/orders/byEmail", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

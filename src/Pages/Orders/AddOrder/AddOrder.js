@@ -18,7 +18,7 @@ const AddOrder = (props) => {
 
     const onSubmit = (data) => {
         data.status = "Pending";
-        fetch("http://localhost:5000/orders", {
+        fetch("https://macabre-vault-58838.herokuapp.com/orders", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

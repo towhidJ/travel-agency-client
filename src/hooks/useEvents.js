@@ -4,7 +4,7 @@ const useEvents = () => {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         setLoading(true);
-        fetch("http://localhost:5000/events")
+        fetch("https://macabre-vault-58838.herokuapp.com/events")
             .then((res) => res.json())
             .then((data) => {
                 setEvents(data.events);
