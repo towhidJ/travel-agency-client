@@ -102,11 +102,11 @@ const Header = () => {
                             </li>
                         )}
                     </ul>
-                    <div>
+                    <div className="py-2">
                         {
                             <Link
                                 to="/"
-                                className="px-2 text-decoration-none text-black"
+                                className="px-2 py-2 text-decoration-none text-black"
                             >
                                 {user?.displayName}
                             </Link>
