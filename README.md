@@ -1,6 +1,6 @@
 # Travel Agency
 
-Live Website Link [https://medicarepherma-ctg.web.app/](https://medicarepherma-ctg.web.app/).
+Live Website Link [https://travel-agency-39be4.web.app/](https://travel-agency-39be4.web.app/).
 
 ## Features Offered
 
@@ -15,7 +15,7 @@ Following is a detailed description of the features offered
 
 -   Hot Destinations
 -   Best Vaction Trip
--   Best Honymon Trip
+-   Best Honymoon Trip Package
 
 ## Project Works
 
@@ -23,15 +23,15 @@ Following is a detailed description of the features offered
 -   Travel and Vaction Booking Website
 -   User Booking Travel Packege on Website
 -   User Booking Hotel on Website
--   User Daily Find Huge Health Tips On Best Doctors
--   User Lab Test Result Find on Website
--   Telemedicine Sheva
--   Find World Best Doctor Appointment
--   Find Huge Doctor Consultancy
+-   Manage user Booking Order
+-   Manage Events
+-   Add New Events
 -   Used fetch on call Api
 -   Use React Bootstrap
 -   Find World Best Vaction Packege
+-   Best Honymoon Trip Package
 -   Use React Router
+-   Use React Hook Forms
 -   USe Coustom Hooks
 -   USe Context Api
 -   USe Firebase Authentication
