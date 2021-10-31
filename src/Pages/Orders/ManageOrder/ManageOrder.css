@@ -1,0 +1,13 @@
+.pending{
+    /* background-color:orange !important; */
+    color:orange;
+    font-weight:700;
+    text-align: center;
+}
+
+.approved{
+    /* background-color:green !important; */
+        color:green ;
+        font-weight:700;
+        text-align: center;
+}

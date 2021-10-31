@@ -1,0 +1,14 @@
+.event{
+    width: "20rem";
+    
+}
+.event-card{
+    background-color:lightyellow;
+}
+
+@media  only screen and (max-width:768px)
+{
+    .event{
+        width: 100%;
+    }
+}

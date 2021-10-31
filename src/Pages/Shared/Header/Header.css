@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Henny+Penny&family=Poppins&family=Qahiri&display=swap');
+.link{
+    
+    
+    
+}
+.navbar{
+    background-color: white;
+    
+}
+.nav-link{
+    color:black;
+    
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-link:hover{
+    color:crimson;
+    font-weight:700;
+}
+
+/* .nav-bg{
+    background-color:#264653
+} */

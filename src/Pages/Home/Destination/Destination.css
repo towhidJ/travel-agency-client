@@ -1,0 +1,16 @@
+ .box{
+    background:rgba(0, 0, 0, 0.5)url('https://www.thinkingoftravel.com/wp-content/uploads/2020/01/landscape-brazil-cropped.jpg');
+    background-blend-mode: darken;
+    border-radius:180px;
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+  }
+  
+  .img-title{
+    
+    color: #fff;
+    text-align: center;
+    
+  }
+ 
