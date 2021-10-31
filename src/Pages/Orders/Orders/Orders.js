@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import "../ManageOrder/ManageOrder.css";
 import useAuth from "./../../../hooks/useAuth";
@@ -6,12 +7,14 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
     const [st, setSt] = useState(0);
+    const [loadorder, setLoadOrder] = useState(true);
 
     const emaila = {
         email: user.email,
     };
 
     useEffect(() => {
+        setLoadOrder(true);
         fetch("https://macabre-vault-58838.herokuapp.com/orders/byEmail", {
             method: "POST",
             headers: {
@@ -23,11 +26,13 @@ const Orders = () => {
             .then((data) => {
                 setOrders(data);
                 setSt(0);
+                setLoadOrder(false);
             });
     }, [st]);
 
     const deleteHandler = (id) => {
         if (window.confirm("Are you sure you want to cancel this order?")) {
+            // eslint-disable-next-line no-lone-blocks
             {
                 fetch(
                     `https://macabre-vault-58838.herokuapp.com/orders/${id}`,
@@ -61,34 +66,42 @@ const Orders = () => {
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {orders.map((order) => (
-                            <tr key={order._id}>
-                                <th scope="row">{order._id}</th>
-                                <td>{order.name}</td>
-                                <td>{order.email}</td>
-                                <td>{order.eventName}</td>
-                                <td>{order.price}</td>
-                                <td
-                                    className={
-                                        order.status === "Pending"
-                                            ? "pending"
-                                            : "approved"
-                                    }
-                                >
-                                    {order.status}
-                                </td>
-                                <td>
-                                    <button
-                                        onClick={() => deleteHandler(order._id)}
-                                        className="btn btn-danger"
+                    {loadorder ? (
+                        <div className=" d-flex justify-content-center align-items-center">
+                            <Spinner animation="border" />
+                        </div>
+                    ) : (
+                        <tbody>
+                            {orders.map((order) => (
+                                <tr key={order._id}>
+                                    <th scope="row">{order._id}</th>
+                                    <td>{order.name}</td>
+                                    <td>{order.email}</td>
+                                    <td>{order.eventName}</td>
+                                    <td>{order.price}</td>
+                                    <td
+                                        className={
+                                            order.status === "Pending"
+                                                ? "pending"
+                                                : "approved"
+                                        }
                                     >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
+                                        {order.status}
+                                    </td>
+                                    <td>
+                                        <button
+                                            onClick={() =>
+                                                deleteHandler(order._id)
+                                            }
+                                            className="btn btn-danger"
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    )}
                 </table>
             </div>
             <ToastContainer
