@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 const AddEvents = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async (data) => {
-        await fetch(`http://localhost:5000/addEvent`, {
+        await fetch(`https://macabre-vault-58838.herokuapp.com/addEvent`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -31,8 +31,8 @@ const AddEvents = () => {
                 </div>
             </div>
             <div
-                className="container px-5 my-2 border-2 shadow-lg p-5"
-                style={{ width: "50rem", backgroundColor: "lightblue" }}
+                className="container px-5 my-2 border-2 shadow-lg p-5  w-full "
+                style={{ backgroundColor: "lightblue" }}
             >
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Form.Group controlId="formGridEmail">
