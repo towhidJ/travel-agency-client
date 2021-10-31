@@ -27,7 +27,7 @@ const ManageOrder = () => {
             .then((res) => res.json())
             .then((data) => {
                 setSt(1);
-                alert("Status Change success");
+                toast.success("Status Updatetd successfully");
             });
     };
 

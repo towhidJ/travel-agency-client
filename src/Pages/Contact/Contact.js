@@ -14,12 +14,12 @@ const Contact = () => {
             </div>
             <div className="container row row-cols-1 justify-content-center row-cols-lg-2">
                 <div className="col mt-5 mb-2">
-                    <div className="">
+                    <div className="text-center">
                         <h1 className="search-text">
                             Get in
                             <span className="search-heading-text"> touch</span>
                         </h1>
-                        <p className="w-75  fw-medium p-3">
+                        <p className="w-75 mx-auto  fw-medium p-3">
                             Enthusiastically mesh long-term high-impact
                             infrastructures vis-a-vis efficient customer
                             service. Professionally fashion wireless leadership

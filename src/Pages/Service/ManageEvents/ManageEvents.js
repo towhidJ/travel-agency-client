@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import useAuth from "./../../../hooks/useAuth";
 
 const ManageEvents = () => {
@@ -24,7 +25,7 @@ const ManageEvents = () => {
                 )
                     .then((res) => res.json())
                     .then((data) => {
-                        alert("Events Delete Success");
+                        toast.error("Order Delete Success!");
                     });
             }
         }
@@ -80,6 +81,17 @@ const ManageEvents = () => {
                     ))}
                 </tbody>
             </table>
+            <ToastContainer
+                position="top-center"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };
