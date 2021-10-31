@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router";
-import { Link } from "react-router-dom";
 import useAuth from "./../../../hooks/useAuth";
 import "./Login.css";
 
@@ -85,22 +84,6 @@ const Login = () => {
                                         <i className="fab fa-google me-2"></i>{" "}
                                         Sign in with Google
                                     </button>
-                                </div>
-                                <div className="d-grid">
-                                    <button
-                                        className="btn btn-facebook btn-login text-uppercase fw-bold"
-                                        type="button"
-                                    >
-                                        <i className="fab fa-facebook-f me-2"></i>{" "}
-                                        Sign in with Facebook
-                                    </button>
-                                </div>
-                                <div className="d-grid">
-                                    <p className="text-primary text-center">
-                                        <Link to="/register">
-                                            Create Account
-                                        </Link>
-                                    </p>
                                 </div>
                             </form>
                         </div>
