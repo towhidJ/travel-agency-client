@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import useAuth from "./../../../hooks/useAuth";
 import "./ManageOrder.css";
 
 const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
+    const [loadorder, setLoadOrder] = useState(true);
     const { user } = useAuth();
     const [st, setSt] = useState(0);
 
     useEffect(() => {
+        setLoadOrder(true);
         fetch("https://macabre-vault-58838.herokuapp.com/orders/")
             .then((res) => res.json())
             .then((data) => {
                 setOrders(data);
                 setSt(0);
+                setLoadOrder(false);
             });
     }, [st]);
 
@@ -75,53 +79,61 @@ const ManageOrder = () => {
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {orders.map((order) => (
-                            <tr key={order._id}>
-                                <th scope="row">{order._id}</th>
-                                <td>{order.name}</td>
-                                <td>{order.email}</td>
-                                <td>{order.eventName}</td>
-                                <td>{order.price}</td>
-                                <td
-                                    className={
-                                        order.status === "Pending"
-                                            ? "pending"
-                                            : "approved"
-                                    }
-                                >
-                                    {order.status === "Pending" ? (
-                                        <select
-                                            className="border-0 px-1 pending"
-                                            onChange={(e) =>
-                                                changHandler(
-                                                    e.target.value,
-                                                    order._id
-                                                )
-                                            }
-                                        >
-                                            <option value="Pending">
-                                                {order.status}
-                                            </option>
-                                            <option value="Approved">
-                                                Approved
-                                            </option>
-                                        </select>
-                                    ) : (
-                                        order.status
-                                    )}
-                                </td>
-                                <td>
-                                    <button
-                                        onClick={() => deleteHandler(order._id)}
-                                        className="btn btn-danger"
+                    {loadorder ? (
+                        <div className=" d-flex justify-content-center align-items-center">
+                            <Spinner animation="border" />
+                        </div>
+                    ) : (
+                        <tbody>
+                            {orders.map((order) => (
+                                <tr key={order._id}>
+                                    <th scope="row">{order._id}</th>
+                                    <td>{order.name}</td>
+                                    <td>{order.email}</td>
+                                    <td>{order.eventName}</td>
+                                    <td>{order.price}</td>
+                                    <td
+                                        className={
+                                            order.status === "Pending"
+                                                ? "pending"
+                                                : "approved"
+                                        }
                                     >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
+                                        {order.status === "Pending" ? (
+                                            <select
+                                                className="border-0 px-1 pending"
+                                                onChange={(e) =>
+                                                    changHandler(
+                                                        e.target.value,
+                                                        order._id
+                                                    )
+                                                }
+                                            >
+                                                <option value="Pending">
+                                                    {order.status}
+                                                </option>
+                                                <option value="Approved">
+                                                    Approved
+                                                </option>
+                                            </select>
+                                        ) : (
+                                            order.status
+                                        )}
+                                    </td>
+                                    <td>
+                                        <button
+                                            onClick={() =>
+                                                deleteHandler(order._id)
+                                            }
+                                            className="btn btn-danger"
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    )}
                 </table>
                 <ToastContainer
                     position="top-center"

@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import useAuth from "./../../../hooks/useAuth";
 
 const ManageEvents = () => {
     const [event, setEvent] = useState([]);
     const { user } = useAuth();
-
+    const [loadEvents, setLoadEvents] = useState(true);
+    const [st, setSt] = useState(0);
     useEffect(() => {
+        setLoadEvents(true);
         fetch("https://macabre-vault-58838.herokuapp.com/events")
             .then((res) => res.json())
             .then((data) => {
                 setEvent(data.events);
+                console.log(event);
+                setLoadEvents(false);
+                setSt(0);
             });
-    }, [event]);
+    }, [st]);
     const deleteHandler = (id) => {
         if (window.confirm("Are you sure you want to delete this order?")) {
             {
@@ -26,6 +32,7 @@ const ManageEvents = () => {
                     .then((res) => res.json())
                     .then((data) => {
                         toast.error("Order Delete Success!");
+                        setSt(1);
                     });
             }
         }
@@ -56,30 +63,36 @@ const ManageEvents = () => {
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {event.map((event) => (
-                        <tr key={event._id}>
-                            <th scope="row">{event._id}</th>
-                            <td>{event.eventName}</td>
-                            <td>{event.eventDate}</td>
-                            <td>{event.location}</td>
-                            <td>
-                                {event.days} Days-{event.nights} nights
-                            </td>
-                            <td>{event.country}</td>
-                            <td>{event.price}</td>
+                {loadEvents ? (
+                    <div className=" d-flex justify-content-center align-items-center">
+                        <Spinner animation="border" />
+                    </div>
+                ) : (
+                    <tbody>
+                        {event.map((event) => (
+                            <tr key={event._id}>
+                                <th scope="row">{event._id}</th>
+                                <td>{event.eventName}</td>
+                                <td>{event.eventDate}</td>
+                                <td>{event.location}</td>
+                                <td>
+                                    {event.days} Days-{event.nights} nights
+                                </td>
+                                <td>{event.country}</td>
+                                <td>{event.price}</td>
 
-                            <td>
-                                <button
-                                    onClick={() => deleteHandler(event._id)}
-                                    className="btn btn-danger"
-                                >
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+                                <td>
+                                    <button
+                                        onClick={() => deleteHandler(event._id)}
+                                        className="btn btn-danger"
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                )}
             </table>
             <ToastContainer
                 position="top-center"
