@@ -1,4 +1,4 @@
-# Programming Learning School
+# Travel Agency
 
 Live Website Link [https://medicarepherma-ctg.web.app/](https://medicarepherma-ctg.web.app/).
 
@@ -56,3 +56,12 @@ Following is a detailed description of the features offered
     -   git pull
 -   Firebase Hosting
     -   Deploy Project on Firebase
+
+##Further Work
+
+The software package allows for a platform to implement the following new
+things
+
+1. Improvement of Algorithm for planing of trip
+2. User feedback based evolution of data base
+3. News updates and flashes about the city through appropriate information source
