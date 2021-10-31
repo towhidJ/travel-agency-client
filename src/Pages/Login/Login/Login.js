@@ -21,7 +21,7 @@ const Login = () => {
             });
     };
     return (
-        <div className="container">
+        <div className="container mt-5">
             <div className="row">
                 <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div className="card border-0 shadow rounded-3 my-5">

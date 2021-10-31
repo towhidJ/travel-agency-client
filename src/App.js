@@ -33,19 +33,19 @@ function App() {
                     <Route path="/events">
                         <Events></Events>
                     </Route>
-                    <Route path="/add-events">
+                    <PrivateRoute path="/add-events">
                         <AddEvents></AddEvents>
-                    </Route>
+                    </PrivateRoute>
                     <Route path="/about">
                         <About></About>
                     </Route>
                     <Route path="/contact">
                         <Contact></Contact>
                     </Route>
-                    <Route path="/addorder/:eventName">
+                    <PrivateRoute path="/addorder/:eventName">
                         {/* <AddOrder></AddOrder> */}
                         <AddBooking></AddBooking>
-                    </Route>
+                    </PrivateRoute>
                     <PrivateRoute path="/orders">
                         <Orders></Orders>
                     </PrivateRoute>
