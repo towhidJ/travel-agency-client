@@ -53,7 +53,7 @@ const Orders = () => {
 
     return (
         <div className="mt-5 pt-5">
-            <div className="container mx-auto px-5">
+            <div className="container mx-auto px-5 table-responsive">
                 <table className="table text-center">
                     <thead>
                         <tr>

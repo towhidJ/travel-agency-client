@@ -66,7 +66,7 @@ const ManageOrder = () => {
                     <hr />
                 </div>
             </div>
-            <div className="container mx-auto px-5">
+            <div className="container table-responsive mx-auto px-5">
                 <table className="table text-center">
                     <thead>
                         <tr>

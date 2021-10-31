@@ -33,7 +33,7 @@ const Home = () => {
                         <Spinner animation="border" />
                     </div>
                 ) : (
-                    <div className="container mt-2 row row-cols-md-2 row-cols-lg-3 row-cols-1 g-5">
+                    <div className=" mt-2 row row-cols-md-2 row-cols-lg-3 row-cols-1 g-5">
                         {items.map((event) => (
                             <Event key={event._id} event={event}></Event>
                         ))}

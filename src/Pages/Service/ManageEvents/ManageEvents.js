@@ -49,51 +49,55 @@ const ManageEvents = () => {
                     <hr />
                 </div>
             </div>
-            <table className="table text-center mt-5">
-                <thead>
-                    <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Event Name</th>
-                        <th scope="col">Event Date</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Duration</th>
+            <div className="table-responsive">
+                <table className="table text-center mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Event Name</th>
+                            <th scope="col">Event Date</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Duration</th>
 
-                        <th scope="col">Country</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                {loadEvents ? (
-                    <div className=" d-flex justify-content-center align-items-center">
-                        <Spinner animation="border" />
-                    </div>
-                ) : (
-                    <tbody>
-                        {event.map((event) => (
-                            <tr key={event._id}>
-                                <th scope="row">{event._id}</th>
-                                <td>{event.eventName}</td>
-                                <td>{event.eventDate}</td>
-                                <td>{event.location}</td>
-                                <td>
-                                    {event.days} Days-{event.nights} nights
-                                </td>
-                                <td>{event.country}</td>
-                                <td>{event.price}</td>
+                            <th scope="col">Country</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    {loadEvents ? (
+                        <div className=" d-flex justify-content-center align-items-center">
+                            <Spinner animation="border" />
+                        </div>
+                    ) : (
+                        <tbody>
+                            {event.map((event) => (
+                                <tr key={event._id}>
+                                    <th scope="row">{event._id}</th>
+                                    <td>{event.eventName}</td>
+                                    <td>{event.eventDate}</td>
+                                    <td>{event.location}</td>
+                                    <td>
+                                        {event.days} Days-{event.nights} nights
+                                    </td>
+                                    <td>{event.country}</td>
+                                    <td>{event.price}</td>
 
-                                <td>
-                                    <button
-                                        onClick={() => deleteHandler(event._id)}
-                                        className="btn btn-danger"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                )}
-            </table>
+                                    <td>
+                                        <button
+                                            onClick={() =>
+                                                deleteHandler(event._id)
+                                            }
+                                            className="btn btn-danger"
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    )}
+                </table>
+            </div>
             <ToastContainer
                 position="top-center"
                 autoClose={1000}
