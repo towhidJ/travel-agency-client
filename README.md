@@ -23,6 +23,8 @@ Following is a detailed description of the features offered
 -   Travel and Vaction Booking Website
 -   User Booking Travel Packege on Website
 -   User Booking Hotel on Website
+-   Admin can add an offer, manage all Events and can manage all booked Events
+-   Admin can also update the status of the booked offer between PENDING and APPROVED which will be displayed to the user
 -   Manage user Booking Order
 -   Manage Events
 -   Add New Events
